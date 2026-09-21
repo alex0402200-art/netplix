@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>NETPLIX</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Kumpulan ikon (dipakai berulang lewat <use>) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9z"/><path d="M10 20a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="i-avatar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11.5" fill="#fff" stroke="none"/><circle cx="12" cy="9.5" r="3.6" fill="#111" stroke="none"/><path d="M5.6 19.2c1-3.4 3.6-5 6.4-5s5.4 1.6 6.4 5c-1.7 1.6-4 2.6-6.4 2.6s-4.7-1-6.4-2.6z" fill="#111" stroke="none"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 2c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5.3 1.5 1 2.5 2 2.5C11 7 10.5 4.5 12 2z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-ghost" viewBox="0 0 24 24"><path d="M5 21V11a7 7 0 0 1 14 0v10l-2.5-2-2 2-2.5-2-2.5 2-2-2z" fill="currentColor" stroke="none"/><circle cx="9.5" cy="11" r="1.4" style="fill:var(--chip)" stroke="none"/><circle cx="14.5" cy="11" r="1.4" style="fill:var(--chip)" stroke="none"/></symbol>
+  <symbol id="i-clapper" viewBox="0 0 24 24"><rect x="3.5" y="9" width="17" height="11" rx="1.5"/><path d="M3.5 9l1.6-4.6 15.4 2.4-.9 2.200M8.6 5.800l3 3.100M13.6 6.600l3 3.1"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.800a4.3 4.3 0 0 1 7.5 2.700c0 5.4-7.5 10-7.5 10z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><text x="12" y="15.6" text-anchor="middle" font-size="9" font-weight="700" fill="currentColor" stroke="none" font-family="Inter,Arial,sans-serif">18+</text></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11.500L12 3l9 8.500V21h-6v-6H9v6H3z" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M15.5 8.500l-2 5-5 2 2-5z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4.5-6.5 8-6.500s7 2 8 6.5"/></symbol>
+</svg>
+
+<div class="app">
+
+  <header class="top">
+    <div class="top-row">
+      <a class="logo" href="./" aria-label="Beranda">
+        <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 2.5l17 9.5-17 9.500z" fill="#e50914" stroke="#e50914" stroke-width="2.6" stroke-linejoin="round"/></svg>
+        <span class="logo-a">NET</span><span class="logo-b">PLIX</span>
+      </a>
+      <div class="top-icons" aria-hidden="true">
+        <svg class="ic"><use href="#i-search"/></svg>
+        <span class="bell"><svg class="ic"><use href="#i-bell"/></svg></span>
+        <svg class="ic avatar"><use href="#i-avatar"/></svg>
+      </div>
+    </div>
+    <div class="tabs" aria-hidden="true">
+      <span class="on">Beranda</span>
+      <span>Film</span>
+      <span>Serial</span>
+      <span>Kategori <svg class="ic"><use href="#i-down"/></svg></span>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section id="hero" class="hero" hidden aria-label="Film terbaru">
+      <div id="heroTrack" class="hero-track"></div>
+      <button id="heroPrev" class="hero-arrow prev" type="button" aria-label="Sebelumnya"><svg class="ic"><use href="#i-left"/></svg></button>
+      <button id="heroNext" class="hero-arrow next" type="button" aria-label="Berikutnya"><svg class="ic"><use href="#i-right"/></svg></button>
+      <div id="heroDots" class="hero-dots"></div>
+    </section>
+
+    <section class="block" aria-hidden="true">
+      <div class="section-head"><h2>Kategori Pilihan</h2><span class="see-all">Lihat Semua <svg class="ic"><use href="#i-right"/></svg></span></div>
+      <div class="chips">
+        <span class="chip on"><svg class="ic"><use href="#i-flame"/></svg>Semua</span>
+        <span class="chip"><svg class="ic"><use href="#i-ghost"/></svg>Horor</span>
+        <span class="chip"><svg class="ic"><use href="#i-clapper"/></svg>Dracin</span>
+        <span class="chip"><svg class="ic"><use href="#i-heart"/></svg>Drakor</span>
+        <span class="chip"><svg class="ic"><use href="#i-18"/></svg>Dewasa</span>
+      </div>
+    </section>
+
+    <div id="rows"></div>
+    <p id="pesan" class="msg" role="status">Memuat…</p>
+
+  </main>
+
+  <nav class="bottom" aria-hidden="true">
+    <div class="bottom-in">
+      <span class="bn on"><svg class="ic"><use href="#i-home"/></svg>Beranda</span>
+      <span class="bn"><svg class="ic"><use href="#i-clapper"/></svg>Daftar Saya</span>
+      <span class="bn"><svg class="ic"><use href="#i-compass"/></svg>Jelajah</span>
+      <span class="bn"><svg class="ic"><use href="#i-user"/></svg>Akun</span>
+    </div>
+  </nav>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

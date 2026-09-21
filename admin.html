@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#000000">
+<title>Admin</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin">
+<div class="wrap">
+
+  <header class="a-head">
+    <span class="logo">
+      <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 2.5l17 9.5-17 9.5z" fill="#e50914" stroke="#e50914" stroke-width="2.6" stroke-linejoin="round"/></svg>
+      <span class="logo-a">NET</span><span class="logo-b">PLIX</span>
+    </span>
+    <div class="right">
+      <span>Admin</span>
+      <button id="keluar" class="link-btn" type="button" hidden>Keluar</button>
+    </div>
+  </header>
+
+  <p id="boot" class="msg">Memuat…</p>
+
+  <!-- Login -->
+  <section id="login" hidden>
+    <h1 class="a-title">Masuk</h1>
+    <form id="formLogin" novalidate>
+      <label class="field"><span>Email</span>
+        <input id="email" type="email" autocomplete="username" inputmode="email" required>
+      </label>
+      <label class="field"><span>Password</span>
+        <input id="password" type="password" autocomplete="current-password" required>
+      </label>
+      <button id="btnMasuk" class="btn" type="submit">Masuk</button>
+      <p id="loginMsg" class="status" role="status"></p>
+    </form>
+  </section>
+
+  <!-- Panel admin: cuma tambah judul, poster dari galeri, link tujuan -->
+  <section id="panel" hidden>
+    <h1 class="a-title">Tambah poster</h1>
+    <form id="formTambah" novalidate>
+      <label class="field"><span>Judul</span>
+        <input id="judul" type="text" maxlength="120" autocomplete="off" required>
+      </label>
+
+      <div class="field">
+        <span>Poster</span>
+        <div class="picker">
+          <button id="pilihFoto" class="btn ghost" type="button">Pilih dari galeri</button>
+          <div id="preview" class="preview">Belum dipilih</div>
+        </div>
+        <input id="foto" type="file" accept="image/*" hidden>
+      </div>
+
+      <label class="field"><span>Link tujuan</span>
+        <input id="link" type="text" inputmode="url" autocomplete="off" placeholder="https://..." required>
+      </label>
+
+      <button id="btnTambah" class="btn" type="submit">Tambah</button>
+      <p id="status" class="status" role="status"></p>
+    </form>
+
+    <section id="daftarWrap" hidden>
+      <h2 class="a-sub">Poster yang sudah ada</h2>
+      <div id="daftar" class="list"></div>
+    </section>
+  </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
