@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0d12">
+<title>NETPLIX</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Kumpulan ikon (dipakai berulang lewat <use>) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9-9-9z"/><circle cx="8" cy="8" r="1.5"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+</svg>
+
+<div class="app">
+
+  <header class="top">
+    <div class="top-row">
+      <a class="logo" href="./" aria-label="Beranda">
+        <span class="logo-a">NET</span><span class="logo-b">PLIX</span>
+      </a>
+      <div class="top-icons">
+        <button id="searchBtn" class="icon-btn" type="button" aria-label="Cari" aria-expanded="false" aria-controls="searchForm">
+          <svg class="ic"><use href="#i-search"/></svg>
+        </button>
+        <button id="menuBtn" class="icon-btn" type="button" aria-label="Menu kategori" aria-expanded="false" aria-controls="drawer">
+          <svg class="ic"><use href="#i-menu"/></svg>
+        </button>
+      </div>
+    </div>
+    <form id="searchForm" class="search-form" hidden role="search">
+      <input id="searchInput" type="search" placeholder="Cari artikel..." autocomplete="off" aria-label="Cari artikel">
+    </form>
+  </header>
+
+  <main id="main">
+
+    <section id="hero" class="hero" hidden aria-label="Artikel pilihan">
+      <div id="heroTrack" class="hero-track"></div>
+      <button id="heroPrev" class="hero-arrow prev" type="button" aria-label="Sebelumnya"><svg class="ic"><use href="#i-left"/></svg></button>
+      <button id="heroNext" class="hero-arrow next" type="button" aria-label="Berikutnya"><svg class="ic"><use href="#i-right"/></svg></button>
+      <div id="heroDots" class="hero-dots"></div>
+    </section>
+
+    <section class="block">
+      <div id="catGrid" class="cat-grid" aria-label="Kategori"></div>
+    </section>
+
+    <section class="block">
+      <h2 id="listTitle" class="section-title">Artikel Terbaru</h2>
+      <div id="list" class="post-list"></div>
+      <p id="pesan" class="msg" role="status">Memuat…</p>
+    </section>
+
+  </main>
+
+</div>
+
+<!-- Menu burger: daftar kategori -->
+<div id="drawerBg" class="drawer-bg" hidden></div>
+<aside id="drawer" class="drawer" aria-label="Menu">
+  <div class="drawer-head">
+    <span>Kategori</span>
+    <button id="drawerClose" class="icon-btn" type="button" aria-label="Tutup menu">
+      <svg class="ic"><use href="#i-close"/></svg>
+    </button>
+  </div>
+  <nav id="drawerList" class="drawer-list"></nav>
+</aside>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
