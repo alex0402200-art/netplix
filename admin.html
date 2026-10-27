@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0c2a1d">
+<title>Admin - KOTOKO</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin">
+<div class="wrap">
+
+  <header class="a-head">
+    <span class="logo">
+      <img src="assets/logo-kotoko.png" alt="KOTOKO">
+    </span>
+    <div class="right">
+      <span>Admin</span>
+      <button id="keluar" class="link-btn" type="button" hidden>Keluar</button>
+    </div>
+  </header>
+
+  <p id="boot" class="msg">Memuat…</p>
+
+  <!-- Login -->
+  <section id="login" hidden>
+    <h1 class="a-title">Masuk</h1>
+    <form id="formLogin" novalidate>
+      <label class="field"><span>Email</span>
+        <input id="email" type="email" autocomplete="username" inputmode="email" required>
+      </label>
+      <label class="field"><span>Password</span>
+        <input id="password" type="password" autocomplete="current-password" required>
+      </label>
+      <button id="btnMasuk" class="btn" type="submit">Masuk</button>
+      <p id="loginMsg" class="status" role="status"></p>
+    </form>
+  </section>
+
+  <!-- Panel admin -->
+  <section id="panel" hidden>
+
+    <h1 class="a-title" id="formTitle">Tambah artikel</h1>
+
+    <div id="editBanner" class="edit-banner" hidden>
+      <span id="editName">Sedang mengedit artikel</span>
+      <button id="btnBatal" type="button">Batal edit</button>
+    </div>
+
+    <form id="formTambah" novalidate>
+      <label class="field"><span>Judul</span>
+        <input id="judul" type="text" maxlength="120" autocomplete="off" required>
+      </label>
+
+      <div class="field">
+        <span>Gambar utama (poster)</span>
+        <div class="picker">
+          <button id="pilihFoto" class="btn ghost" type="button">Pilih dari galeri</button>
+          <div id="preview" class="preview">Belum dipilih</div>
+        </div>
+        <p id="fotoNote" class="hint" hidden>Biarkan kosong kalau tetap memakai gambar yang sekarang.</p>
+        <input id="foto" type="file" accept="image/*" hidden>
+      </div>
+
+      <label class="field"><span>Kategori</span>
+        <select id="kategori">
+          <option value="">Tanpa kategori</option>
+        </select>
+      </label>
+
+      <div class="field">
+        <span>Isi artikel</span>
+        <p class="hint">Tulis paragraf, lalu tambah gambar. Susun urutannya dengan tombol ▲ ▼. Blok yang tidak diperlukan bisa dihapus dengan ✕.</p>
+        <div id="blocks" class="blocks"></div>
+        <div class="block-actions">
+          <button id="addPara" class="btn ghost small" type="button">+ Paragraf</button>
+          <button id="addImg" class="btn ghost small" type="button">+ Gambar</button>
+        </div>
+        <input id="imgFile" type="file" accept="image/*" hidden>
+        <div class="msg-inline" id="blockMsg"></div>
+      </div>
+
+      <label class="field"><span>Link download (opsional)</span>
+        <input id="link" type="text" inputmode="url" autocomplete="off" placeholder="https://...">
+      </label>
+
+      <button id="btnTambah" class="btn" type="submit">Terbitkan</button>
+      <p id="status" class="status" role="status"></p>
+    </form>
+
+    <section class="a-block">
+      <h2 class="a-sub">Kategori</h2>
+      <form id="formKat" class="kat-form" novalidate>
+        <input id="katBaru" type="text" maxlength="40" autocomplete="off" placeholder="Nama kategori baru">
+        <button id="btnKat" class="btn small" type="submit">Tambah</button>
+      </form>
+      <p id="katStatus" class="status" role="status"></p>
+      <div id="katList" class="list"></div>
+    </section>
+
+    <section class="a-block">
+      <h2 class="a-sub">Halaman depan</h2>
+      <p class="hint">Banner ditampilkan lebar penuh di paling atas halaman utama. Ukuran yang disarankan 16:9, misalnya 1280 x 720.</p>
+
+      <div class="field">
+        <span>Banner</span>
+        <div id="bannerPreview" class="banner-preview">Belum ada banner</div>
+        <div class="block-actions">
+          <button id="pilihBanner" class="btn ghost small" type="button">Pilih gambar</button>
+          <button id="btnHapusBanner" class="btn ghost small" type="button" hidden>Hapus banner</button>
+        </div>
+        <input id="bannerFile" type="file" accept="image/*" hidden>
+      </div>
+
+      <form id="formHome" novalidate>
+        <label class="field"><span>Teks sambutan</span>
+          <textarea id="welcomeText" maxlength="400" placeholder="Contoh: Selamat datang di KOTOKO. Temukan ulasan dan tutorial terbaru di sini."></textarea>
+        </label>
+        <button id="btnHome" class="btn" type="submit">Simpan halaman depan</button>
+        <p id="homeStatus" class="status" role="status"></p>
+      </form>
+    </section>
+
+    <section class="a-block">
+      <h2 class="a-sub">Artikel yang sudah ada</h2>
+      <div id="daftar" class="list"></div>
+    </section>
+
+  </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="js/common.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
