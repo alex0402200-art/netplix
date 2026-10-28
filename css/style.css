@@ -304,8 +304,12 @@ body.admin { background: var(--bg); }
 
 /* ---------- Isi artikel di halaman baca ---------- */
 #body.post-body { display: flex; flex-direction: column; gap: 16px; }
-.post-figure { margin: 8px 0; }
-.post-figure img { width: 100%; border-radius: 12px; border: 1px solid var(--line); }
+.post-figure {
+  align-self: center; width: 84%; margin: 8px auto;
+  padding: 10px; background: var(--panel);
+  border: 1px solid var(--line); border-radius: 16px;
+}
+.post-figure img { width: 100%; height: auto; border-radius: 10px; }
 
 /* ---------- Rekomendasi artikel lain ---------- */
 .related { margin-top: 36px; padding-top: 4px; }
@@ -351,3 +355,4 @@ body.admin { background: var(--bg); }
 .fmt.on { background: var(--gold); border-color: var(--gold); color: #0b0d12; font-weight: 700; }
 .fmt-b { font-weight: 800; }
 .fmt-i { font-style: italic; }
+                        
