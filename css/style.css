@@ -355,4 +355,8 @@ body.admin { background: var(--bg); }
 .fmt.on { background: var(--gold); border-color: var(--gold); color: #0b0d12; font-weight: 700; }
 .fmt-b { font-weight: 800; }
 .fmt-i { font-style: italic; }
-                        
+
+/* ---------- Link halaman di footer ---------- */
+.foot-nav { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-bottom: 16px; }
+.foot-nav a { color: var(--ink-2); font-size: 13px; text-decoration: none; }
+.foot-nav a:hover { color: var(--ink); text-decoration: underline; }
