@@ -109,6 +109,17 @@
     });
     if (cols.children.length) foot.appendChild(cols);
 
+    // Link halaman: About, Contact, Privacy Policy
+    var nav = document.createElement('nav');
+    nav.className = 'foot-nav';
+    [['about.html', 'About'], ['contact.html', 'Contact'], ['privacy.html', 'Privacy Policy']].forEach(function (l) {
+      var a = document.createElement('a');
+      a.href = l[0];
+      a.textContent = l[1];
+      nav.appendChild(a);
+    });
+    foot.appendChild(nav);
+
     var copy = document.createElement('p');
     copy.className = 'footer-copy';
     copy.textContent = '© 2026 KOTOKO Audio Sound System';
